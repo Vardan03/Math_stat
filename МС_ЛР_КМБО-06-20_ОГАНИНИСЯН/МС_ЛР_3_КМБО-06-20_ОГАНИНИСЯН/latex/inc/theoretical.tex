@@ -1,0 +1,212 @@
+\section{Краткие теоретические сведения}
+\label{cha:theory}
+\subsection{Нормальное распределение}
+
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{|l|l|}
+    \hline
+    Плотность распределения& $\frac{1}{\sigma}\varphi(\frac{x-a}{\sigma}) = \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-a)^2}{2\sigma^2}}$\\
+    \hline
+    Функция распределения& $\Phi(\frac{x-a}{\sigma}) = \frac{1}{\sigma\sqrt{2\pi}} \int_{-\infty}^{x}e^{-\frac{(t-a)^2}{2\sigma^2}}dt$\\
+    \hline
+    Математическое ожидание&  $a$\\
+    \hline
+    Дисперсия&  $\sigma^2$\\
+    \hline
+    \end{tabular}
+\end{table}
+
+\subsection{$\chi^2$-распределение с n степенями свобод}
+
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{|l|l|}
+    \hline
+    Плотность распределения& $\begin{cases}0,& x\leq 0\\ \displaystyle\frac{x^{\frac{n}{2}-1}}{2^{\frac{n}{2}}\Gamma\left(\frac{n}{2}\right)}e^{-\frac{x}{2}},& x > 0\end{cases}$\\
+    \hline
+    Математическое ожидание& $n$ \\
+    \hline
+    Дисперсия& $2n$\\
+    \hline
+    \end{tabular}
+\end{table}
+
+Если для всех $X_i \sim \chi^2(k_i)$ и $X_i$ независимы, то $\sum\limits_{i=1}^N X_i \sim \chi^2\left(\sum\limits_{i=1}^N k_i\right)$.
+
+Если $\xi \sim N(0,1)$, то плотность с.в. $\mu = \xi^2$ равна
+$$
+\begin{cases}
+0,& y\leq0\\
+\frac{1}{\sqrt{2\pi y}}e^{-\frac{y}{2}},& y > 0
+\end{cases}
+$$
+
+Если $X_i \sim N(0,1)$ и $X_i$ независимы, то $\sum\limits_{i=1}^NX_i^2 \sim \chi^2(N)$.
+
+Если $X_i \sim N(a, \sigma^2)$ и $X_i$ независимы, то $\sum\limits_{i=1}^N \left(\frac{X_i - a}{\sigma}\right)^2 \sim \chi^2(N)$.
+
+Если $X_i \sim N(a, \sigma^2)$ и $X_i$ независимы, то $\sum\limits_{i=1}^N \left(\frac{X_i - \overline{X}}{\sigma}\right)^2 \sim \chi^2(N)$, при этом $S^2 = \frac{1}{N-1}\sum\limits_{i=1}^N\left(X_i - \overline{X}\right)$ и $\overline{X} = \frac{1}{N}\sum\limits_{i=1}^N X_i$ независимы.
+
+\subsection{Распределение Стьюдента $t(n)$}
+
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{|l|l|}
+    \hline
+    Плотность распределения& $\displaystyle\frac{\Gamma\left(\frac{n+1}{2}\right)}{\sqrt{n\pi}\Gamma\left(\frac{n}{2}\right)\left(1+\frac{x^2}{n}\right)^{\frac{n+1}{2}}}$\\
+    \hline
+    Математическое ожидание& $0, \: n > 1$. Иначе не существует. \\
+    \hline
+    Дисперсия& $\frac{n}{n-2}, \: n > 2$. Иначе не существует.\\
+    \hline
+    \end{tabular}
+\end{table}
+
+Если $\xi \sim N(0,1)$ и $\mu \sim \chi^2(N)$ независимы, то $\xi \sqrt{\frac{N}{\mu}} \sim t(N)$.
+
+Если $X_i \sim N(0,1)$ и $X_i$ независимы, то $\frac{X_0}{\sqrt{\overline{X^2}}}\sim t(N)$.
+
+Если $X_i \sim N(a, \sigma^2)$ и $X_i$ независимы, то $\frac{\overline{X}-a}{S}\sqrt{N}\sim t(N-1)$, $S^2 = \frac{1}{N-1}\sum\limits_{i=1}^N\left(X_i - \overline{X}\right)$.
+
+\subsection{Распределение Фишера-Снедекора $F(k_1, k_2)$}
+
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{|l|l|}
+    \hline
+    Плотность распределения& $\begin{cases}0,& x \leq 0\\ 
+    \frac{\Gamma\left(\frac{k_1+k_2}{2}\right)\cdot k_1^{\frac{k_1}{2}}\cdot k_2^{\frac{k_2}{2}}}{\Gamma\left(\frac{k_1}{2}\right)\Gamma\left(\frac{k_2}{2}\right)}\cdot x^{\frac{k_1}{2}-1}\cdot \left(k_1x+k_2\right)^{\frac{k_1+k_2}{2}},& x > 0\end{cases}$\\
+    \hline
+    Математическое ожидание& $\frac{k_2}{k_2-2}, \: k_2 \geq 3$\\
+    \hline
+    Дисперсия& $\frac{2k_2^2\left(k_1+k_2-2\right)}{k_1(k_2-2)^2(k_2-4)}, \: k_2 \geq 5$\\
+    \hline
+    \end{tabular}
+\end{table}
+
+Если для всех $\xi \sim \chi^2(k_1)$ и $\mu \sim \chi^2(k_2)$ независимы, то $\frac{\xi/k_1}{\mu/k_2}\sim F(k_1, k_2)$.
+
+Если выборки $X = \left(X_1, \cdots, X_N\right)$ и $Y = \left(Y_1, \cdots, Y_M\right)$ независимы, $X_i\sim N(a_1\sigma^2)$ и $X_i$ независимы, $Y_i \sim N(a_2, \sigma^2)$ и $Y_i$ независимы, то верны св-ва:
+\begin{enumerate}
+    \item $\frac{\overline{X^2}}{\overline{Y^2}} \sim F(N,M)$.
+    \item $\frac{S_1^2}{S_2^2}\sim F(N-1, M-1)$, $S^2_1 = \frac{1}{N-1}\sum\limits_{i=1}^N\left(X_i - \overline{X}\right)$, $S^2_2 = \frac{1}{M-1}\sum\limits_{i=1}^M\left(Y_i - \overline{Y}\right)$.
+\end{enumerate}
+
+\subsection{Общая схема проверки гипотезы о равенстве математических ожиданий с использованием распределения Стьюдента}
+
+Проверка гипотезы о равенстве математических ожиданий двух случайных величин по выборках и с использованием распределения Стьюдента с числом степеней свободы проводится следующим образом.
+Рассчитывается значение критерия $T_{N,M}$:
+$$
+S^2_x(N-1) = N\left(\overline{x^2} - \overline{x}^2\right)
+$$
+$$
+S^2_y(M-1) = M\left(\overline{y^2} - \overline{y}^2\right)
+$$
+$$
+T_{N,M} = \frac{\overline{x} - \overline{y}}{\sqrt{S^2_x(N-1) + S^2_y(M-1)}}\sqrt{\frac{MN(N+M-2)}{N+M}}
+$$
+
+Если гипотеза о равенстве математических ожиданий нормально распределенных случайных величин $X$ и $Y$ верна, то $T_{N,M}$ имеет распределение $t(N+M-2)$.
+
+По уровню значимости $\alpha$ находится критическое значение $t_{\text{кр}, \alpha}(N+M-2)$. Если вычисленное значение $T_{N,M}$ такое, что $|T_{N,M}| \leq t_{\text{кр}, \alpha}(N+M-2)$, то гипотеза о равенстве мат. ожиданий принимается.
+
+
+\subsection{Общая схема проверки гипотезы о равенстве математических ожиданий с 
+использованием однофакторного дисперсионного анализа}
+
+Проверка гипотезы проводится по следующей схеме. 
+
+Расчёт общего среднего значения и групповых средних
+$$
+\overline{u} = \frac{1}{N m}\sum\limits_{j=1}^m\sum\limits_{i=1}^N u_{ij}, \: \overline{u_{.j}} = \frac{1}{N}\sum\limits_{i=1}^N u_{ij}, \: j = 1, \cdots, m
+$$
+
+Расчёт общей суммы квадратов отклонений
+$$
+S_{\text{общ}} = \sum\limits_{j=1}^m\sum\limits_{i=1}^N(u_{ij} - \overline{u})^2.
+$$
+
+Расчёт факторной суммы квадратов отклонений
+$$
+S_{\text{факт}} = N\sum\limits_{j=1}^m (\overline{u_{.j}} - \overline{u})^2
+$$
+
+Расчёт остаточной суммы квадратов отклонений
+$$
+S_{\text{ост}} = \sum\limits_{j=1}^m\sum\limits_{i=1}^N(u_{ij} - u_{.j})^2 = S_{\text{общ}} - S_{\text{факт}}
+$$
+
+Расчёт критерия $F_{N,m}$:
+$$
+F_{N,m} = \frac{S_{\text{факт}}^2}{S_{\text{ост}}^2}, \: S_{\text{факт}}^2 = \frac{S_{\text{факт}}}{m-1}, \: S_{\text{ост}}^2 = \frac{S_{\text{ост}}}{m(N-1)}
+$$
+
+Если гипотеза о равенстве математических ожиданий m нормально распределённых случайных величин верна, то $F_{N,m}$ имеет распределение Фишера-Снедекора с числом степеней свободы $(k_1, k_2)$, $k_1 = m-1$, $k_2 = m(N-1)$.
+
+\subsection{Общая схема проверки гипотезы о равенстве дисперсий двух наблюдаемых 
+нормально распределенных случайных величин с использованием распределения
+Фишера-Снедекора}
+
+При проверке гипотезы о равенстве дисперсий двух нормально распределённых с.в. по выборкам $\left\{x_1,\cdots, x_N\right\}$ и $\left\{y_1,\cdots, y_M\right\}$ используется распределение Фишера-Снедекора.
+
+Рассчитывается значение критерия $F_{N,M}$ по формуле:
+$$
+F_{N,M} = \frac{S_1^2}{S_2^2}, \: S_1^2 = \max{\left(S_x^2, S_y^2\right)}, \: S_2^2 = \min{\left(S_x^2, S_y^2\right)}
+$$
+
+Если гипотеза о равенстве дисперсий двух нормально распределённых с.в. верна, то $F_{N,M}$ имеет распределение Фишера-Снедекора с числом степеней свободы $(k_1, k_2)$, где
+$$
+k_1 = \begin{cases}
+N-1, S_1^2 = S_x^2\\
+M-1, S_1^2 = S_y^2
+\end{cases}, \:
+k_2 = \begin{cases}
+N-1, S_2^2 = S_x^2\\
+M-1, S_2^2 = S_y^2
+\end{cases}
+$$
+
+\subsection{Средства языка программирования}%
+\textbf{Получение квантиля уровня распределения Стьюдента}
+\begin{lstlisting}[language=Python]
+import scipy.stats as sps
+sps.t.ppf(x, n)# n = 2N-2
+\end{lstlisting}
+
+\textbf{Округление с точностью до 5 знаков}
+\begin{lstlisting}[language=Python]
+import numpy as np
+np.around(num, 5)
+\end{lstlisting}
+
+\textbf{Получение критического значения для однофакторного дисперсионного анализа}
+\begin{lstlisting}[language=Python]
+import scipy.stats as sps
+sps.f.ppf(x,m,n) 
+\end{lstlisting}
+
+\textbf{Проверка гипотезы о равенстве мат. ожиданий t-критерием Стьюдента}
+\begin{lstlisting}[language=Python]
+import scipy.stats as sps
+pval = sps.ttest_ind(X, Y, equal_var=True)
+\end{lstlisting}
+
+\textbf{Проверка гипотезы о равенстве мат. ожиданий t-критерием Уэлча}
+\begin{lstlisting}[language=Python]
+import scipy.stats as sps
+pval = sps.ttest_ind(X, Y, equal_var=False)
+\end{lstlisting}
+
+\textbf{Проверка гипотезы о равенстве мат. ожиданий однофакторным дисперсионным анализом}
+\begin{lstlisting}[language=Python]
+import scipy.stats as sps
+pval = sps.f_oneway(X,Y,Z)
+\end{lstlisting}
+
+\textbf{Проверка гипотезы о равенстве дисперсий критерием Бартлетта}
+Функция для нормального распределения.
+\begin{lstlisting}[language=Python]
+import scipy.stats as sps
+pval = sps.bartlett(X,Y,Z)
+\end{lstlisting}

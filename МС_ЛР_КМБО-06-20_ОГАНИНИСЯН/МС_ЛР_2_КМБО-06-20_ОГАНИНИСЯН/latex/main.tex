@@ -1,0 +1,37 @@
+\documentclass[a4paper,14pt]{extarticle} % 14й шрифт
+\input{inc/preamble}
+
+\begin{document}
+
+\includepdf[pages=-]{inc/generated/title.pdf}
+
+\tableofcontents % Содержание
+\clearpage
+
+\input{inc/task}
+\newpage
+\input{inc/theoretical}
+\newpage
+\section{Результаты расчетов}
+\label{sec:}
+
+\input{inc/generated/1Number.tex}
+\newpage
+\input{inc/generated/2Number.tex}
+\newpage
+\input{inc/generated/3Number.tex}
+\newpage
+\input{inc/generated/4Number.tex}
+\newpage
+\input{inc/generated/5Number.tex}
+\newpage
+
+
+\input{inc/biblio.tex}
+\newpage
+\input{inc/appendix.tex}
+\newpage
+
+
+
+\end{document}
